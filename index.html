@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Invitación de boda de Jennifer y David. Una noche mágica bajo la luna."
+    >
+
+    <title>Jennifer & David | El último hechizo</title>
+
+
+    <!-- =====================================================
+         FUENTES
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body class="no-scroll">
+
+
+    <!-- =====================================================
+         PANTALLA DE BIENVENIDA
+         ===================================================== -->
+
+    <div
+        id="welcomeScreen"
+        class="welcome-screen"
+    >
+
+        <div class="welcome-moon"></div>
+
+        <div class="welcome-content">
+
+            <span class="welcome-symbol">
+                ☾
+            </span>
+
+            <p class="eyebrow">
+                Una noche. Un destino. Un hechizo.
+            </p>
+
+            <h1 id="welcomeTitle">
+
+                Jennifer
+
+                <span>&</span>
+
+                David
+
+            </h1>
+
+            <p class="welcome-date">
+                31 · 10 · 2026
+            </p>
+
+            <button
+                id="openInvitation"
+                class="btn btn-primary"
+                type="button"
+            >
+                ✨ Entrar al hechizo
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MÚSICA
+         ===================================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="./music/halloween.mp3"
+            type="audio/mpeg"
+        >
+
+        Tu navegador no soporta audio HTML5.
+
+    </audio>
+
+
+    <!-- =====================================================
+         BOTÓN DE MÚSICA
+         ===================================================== -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+    >
+        🔇
+    </button>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    Tenemos un secreto que contarte...
+                </p>
+
+                <h1>
+
+                    Jennifer
+
+                    <span>&</span>
+
+                    David
+
+                </h1>
+
+                <p class="hero-date">
+                    31 de octubre de 2026
+                </p>
+
+                <p class="hero-description">
+
+                    Dos almas decidieron escribir juntas
+                    el capítulo más importante de su historia.
+
+                </p>
+
+                <a
+                    href="#historia"
+                    class="scroll-indicator"
+                >
+                    ↓
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HISTORIA
+             ================================================= -->
+
+        <section
+            id="historia"
+            class="section story-section reveal"
+        >
+
+            <div class="section-header">
+
+                <span class="section-symbol">
+                    ☽
+                </span>
+
+                <p class="eyebrow">
+                    Nuestra historia
+                </p>
+
+                <h2>
+                    El comienzo de nuestro hechizo
+                </h2>
+
+            </div>
+
+
+            <div class="story-content">
+
+                <p>
+                    Hay historias que comienzan con un simple encuentro,
+                    otras con una mirada que cambia todo.
+                </p>
+
+                <p>
+                    La nuestra comenzó sin saber que aquel momento
+                    terminaría convirtiéndose en una historia que
+                    queremos continuar escribiendo juntos.
+                </p>
+
+                <p>
+                    Hoy queremos compartir con las personas que amamos
+                    uno de los capítulos más importantes de nuestra vida.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOLA DE CRISTAL
+             ================================================= -->
+
+        <section
+            id="bolaCristal"
+            class="crystal-section reveal"
+        >
+
+            <div class="crystal-content">
+
+                <p class="eyebrow">
+                    La visión de la noche
+                </p>
+
+                <h2>
+                    La bola de cristal
+                </h2>
+
+                <p class="crystal-intro">
+
+                    Dicen que quienes miran dentro de ella
+                    pueden descubrir un pequeño secreto
+                    sobre lo que ocurrirá esta noche...
+
+                </p>
+
+
+                <!-- Bola de cristal -->
+
+                <button
+                    id="crystalBall"
+                    class="crystal-ball"
+                    type="button"
+                    aria-label="Consultar la bola de cristal"
+                >
+
+                    <span class="crystal-core">
+                        🔮
+                    </span>
+
+                    <span class="crystal-shine"></span>
+
+                </button>
+
+
+                <p
+                    id="crystalPrediction"
+                    class="crystal-prediction"
+                    aria-live="polite"
+                >
+                    Toca la bola de cristal
+                    para descubrir tu destino...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CUENTA REGRESIVA
+             ================================================= -->
+
+        <section class="countdown-section">
+
+            <div class="section-header">
+
+                <p class="eyebrow">
+                    La noche se acerca
+                </p>
+
+                <h2>
+                    El hechizo comenzará en...
+                </h2>
+
+            </div>
+
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
+
+                <div class="countdown-item">
+
+                    <span id="days">
+                        00
+                    </span>
+
+                    <small>
+                        Días
+                    </small>
+
+                </div>
+
+
+                <div class="countdown-item">
+
+                    <span id="hours">
+                        00
+                    </span>
+
+                    <small>
+                        Horas
+                    </small>
+
+                </div>
+
+
+                <div class="countdown-item">
+
+                    <span id="minutes">
+                        00
+                    </span>
+
+                    <small>
+                        Minutos
+                    </small>
+
+                </div>
+
+
+                <div class="countdown-item">
+
+                    <span id="seconds">
+                        00
+                    </span>
+
+                    <small>
+                        Segundos
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EL RITUAL
+             ================================================= -->
+
+        <section
+            id="ritual"
+            class="section ritual-section reveal"
+        >
+
+            <div class="section-header">
+
+                <span class="section-symbol">
+                    🕯️
+                </span>
+
+                <p class="eyebrow">
+                    El ritual de la noche
+                </p>
+
+                <h2>
+                    Sigue las señales
+                </h2>
+
+                <p>
+                    Esta noche tendrá sus propios pequeños rituales.
+                    Déjate llevar y disfruta cada momento.
+                </p>
+
+            </div>
+
+
+            <!-- Lista del ritual -->
+
+            <div class="ritual-list">
+
+
+                <!-- Ritual 1 -->
+
+                <article class="ritual-item">
+
+                    <div class="ritual-number">
+                        01
+                    </div>
+
+                    <div class="ritual-icon">
+                        🕯️
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            Entra en la noche
+                        </h3>
+
+                        <p>
+                            Llega, encuentra tu lugar y prepárate
+                            para comenzar nuestra historia.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Ritual 2 -->
+
+                <article class="ritual-item">
+
+                    <div class="ritual-number">
+                        02
+                    </div>
+
+                    <div class="ritual-icon">
+                        💍
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            Presencia el ritual
+                        </h3>
+
+                        <p>
+                            Acompáñanos durante nuestra ceremonia
+                            y sé testigo del momento en que unimos
+                            nuestras vidas.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Ritual 3 -->
+
+                <article class="ritual-item">
+
+                    <div class="ritual-number">
+                        03
+                    </div>
+
+                    <div class="ritual-icon">
+                        🥂
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            Brinda con nosotros
+                        </h3>
+
+                        <p>
+                            Celebremos juntos el comienzo
+                            de esta nueva etapa.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Ritual 4 -->
+
+                <article class="ritual-item">
+
+                    <div class="ritual-number">
+                        04
+                    </div>
+
+                    <div class="ritual-icon">
+                        💃
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            Déjate llevar por la música
+                        </h3>
+
+                        <p>
+                            Guarda la elegancia y prepárate
+                            para perderte en la pista de baile.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Ritual 5 -->
+
+                <article class="ritual-item">
+
+                    <div class="ritual-number">
+                        05
+                    </div>
+
+                    <div class="ritual-icon">
+                        🌙
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            Mira la luna
+                        </h3>
+
+                        <p>
+                            En algún momento de la noche,
+                            detente y disfruta el instante.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Ritual 6 -->
+
+                <article class="ritual-item ritual-final">
+
+                    <div class="ritual-number">
+                        06
+                    </div>
+
+                    <div class="ritual-icon">
+                        🔮
+                    </div>
+
+                    <div class="ritual-info">
+
+                        <h3>
+                            El último hechizo
+                        </h3>
+
+                        <p>
+                            Antes de partir, deja unas palabras
+                            para Jennifer y David.
+                        </p>
+
+                        <a
+                            href="#ultimoHechizo"
+                            class="ritual-link"
+                        >
+                            Lanzar el hechizo →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVENTOS
+             ================================================= -->
+
+        <section
+            id="eventos"
+            class="section events-section reveal"
+        >
+
+            <div class="section-header">
+
+                <span class="section-symbol">
+                    🕯
+                </span>
+
+                <p class="eyebrow">
+                    Los lugares
+                </p>
+
+                <h2>
+                    Acompáñanos
+                </h2>
+
+            </div>
+
+
+            <div class="events-grid">
+
+
+                <!-- Iglesia -->
+
+                <article class="event-card">
+
+                    <div class="event-icon">
+                        ⛪
+                    </div>
+
+                    <p class="event-time">
+                        18:00 HRS
+                    </p>
+
+                    <h3>
+                        Ceremonia
+                    </h3>
+
+                    <p class="event-place">
+                        Iglesia de Santa Luna
+                    </p>
+
+                    <p class="event-address">
+
+                        Calle de los Suspiros #666<br>
+                        Centro de Monterrey<br>
+                        Nuevo León
+
+                    </p>
+
+
+                    <div class="location-buttons">
+
+                        <a
+                            id="churchGoogleMaps"
+                            class="location-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            📍 Google Maps
+                        </a>
+
+                        <a
+                            id="churchWaze"
+                            class="location-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            🚗 Waze
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Recepción -->
+
+                <article class="event-card">
+
+                    <div class="event-icon">
+                        🏰
+                    </div>
+
+                    <p class="event-time">
+                        20:00 HRS
+                    </p>
+
+                    <h3>
+                        Recepción
+                    </h3>
+
+                    <p class="event-place">
+                        Castillo de la Luna
+                    </p>
+
+                    <p class="event-address">
+
+                        Camino de la Luna #666<br>
+                        Monterrey<br>
+                        Nuevo León
+
+                    </p>
+
+
+                    <div class="location-buttons">
+
+                        <a
+                            id="venueGoogleMaps"
+                            class="location-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            📍 Google Maps
+                        </a>
+
+                        <a
+                            id="venueWaze"
+                            class="location-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            🚗 Waze
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CRONOLOGÍA
+             ================================================= -->
+
+        <section
+            class="section timeline-section reveal"
+        >
+
+            <div class="section-header">
+
+                <p class="eyebrow">
+                    La noche
+                </p>
+
+                <h2>
+                    Cronología del hechizo
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <span class="timeline-time">
+                        17:30
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            La llegada
+                        </h3>
+
+                        <p>
+                            Los invitados comienzan a llegar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <span class="timeline-time">
+                        18:00
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            El ritual
+                        </h3>
+
+                        <p>
+                            Comienza nuestra ceremonia.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <span class="timeline-time">
+                        20:00
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            El banquete
+                        </h3>
+
+                        <p>
+                            Cena, brindis y celebración.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <span class="timeline-time">
+                        22:00
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Primer baile
+                        </h3>
+
+                        <p>
+                            Nuestro primer baile como esposos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <span class="timeline-time">
+                        00:00
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            La fiesta
+                        </h3>
+
+                        <p>
+                            Y aquí comienza la verdadera magia.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CÓDIGO DE VESTIMENTA
+             ================================================= -->
+
+        <section
+            class="dress-code-section reveal"
+        >
+
+            <div class="section-header">
+
+                <span class="section-symbol">
+                    🦇
+                </span>
+
+                <p class="eyebrow">
+                    Código de vestimenta
+                </p>
+
+                <h2>
+                    Elegancia oscura
+                </h2>
+
+                <p>
+                    Viste de gala y deja que la noche haga el resto.
+                </p>
+
+            </div>
+
+
+            <div class="dress-code-symbols">
+
+                <span>🖤</span>
+                <span>🕯️</span>
+                <span>🌙</span>
+                <span>🥀</span>
+                <span>🦇</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EL ÚLTIMO HECHIZO
+             ================================================= -->
+
+        <section
+            id="ultimoHechizo"
+            class="section spell-section reveal"
+        >
+
+            <div class="spell-container">
+
+
+                <div class="spell-glow"></div>
+
+
+                <div class="section-header">
+
+                    <span class="section-symbol">
+                        🔮
+                    </span>
+
+                    <p class="eyebrow">
+                        El ritual final
+                    </p>
+
+                    <h2>
+                        El último hechizo
+                    </h2>
+
+                    <p class="spell-intro">
+
+                        Antes de partir, deja un deseo,
+                        un consejo, una bendición o unas
+                        palabras para Jennifer y David.
+
+                        <br><br>
+
+                        Tus palabras quedarán como recuerdo
+                        de esta noche mágica.
+
+                    </p>
+
+                </div>
+
+
+
+                <form
+                    id="spellForm"
+                    class="spell-form"
+                    novalidate
+                >
+
+
+                    <!-- Nombre -->
+
+                    <div class="form-group">
+
+                        <label for="guestName">
+
+                            Tu nombre
+
+                            <span>
+                                (opcional)
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="guestName"
+                            name="guestName"
+                            maxlength="80"
+                            autocomplete="name"
+                            placeholder="¿Quién lanza el hechizo?"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Mensaje -->
+
+                    <div class="form-group">
+
+                        <label for="spellMessage">
+                            Tu mensaje
+                        </label>
+
+
+                        <textarea
+                            id="spellMessage"
+                            name="spellMessage"
+                            rows="6"
+                            maxlength="500"
+                            required
+                            placeholder="Escribe aquí tus palabras para Jennifer y David..."
+                        ></textarea>
+
+
+                        <div class="character-counter">
+
+                            <span id="characterCount">
+                                0
+                            </span>
+
+                            /500
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Error -->
+
+                    <p
+                        id="spellError"
+                        class="form-error"
+                        role="alert"
+                        hidden
+                    ></p>
+
+
+
+                    <!-- Lanzar -->
+
+                    <button
+                        id="castSpellButton"
+                        class="btn btn-spell"
+                        type="submit"
+                    >
+                        ✨ Lanzar el hechizo
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RSVP
+             ================================================= -->
+
+        <section
+            class="section rsvp-section reveal"
+        >
+
+            <div class="section-header">
+
+                <span class="section-symbol">
+                    💌
+                </span>
+
+                <p class="eyebrow">
+                    Confirma tu presencia
+                </p>
+
+                <h2>
+                    ¿Aceptas la invitación?
+                </h2>
+
+                <p>
+
+                    Confirma tu asistencia antes del
+
+                    <strong>
+                        15 de octubre de 2026
+                    </strong>.
+
+                </p>
+
+            </div>
+
+
+            <a
+                id="whatsappButton"
+                class="btn btn-primary"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 Confirmar por WhatsApp
+            </a>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GALERÍA
+             ================================================= -->
+
+        <section
+            class="section gallery-section reveal"
+        >
+
+            <div class="section-header">
+
+                <p class="eyebrow">
+                    Algunos recuerdos
+                </p>
+
+                <h2>
+                    Antes del gran día
+                </h2>
+
+            </div>
+
+
+            <div class="gallery">
+
+
+                <button
+                    class="gallery-item"
+                    type="button"
+                    data-image="https://images.pexels.com/photos/16038622/pexels-photo-16038622.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                >
+
+                    <img
+                        src="https://images.pexels.com/photos/16038622/pexels-photo-16038622.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                        alt="Pareja durante una sesión romántica"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
+
+                <button
+                    class="gallery-item"
+                    type="button"
+                    data-image="https://images.pexels.com/photos/18959384/pexels-photo-18959384.jpeg?auto=compress&cs=tinysrgb&w=900"
+                >
+
+                    <img
+                        src="https://images.pexels.com/photos/18959384/pexels-photo-18959384.jpeg?auto=compress&cs=tinysrgb&w=900"
+                        alt="Decoración elegante de boda"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
+
+                <button
+                    class="gallery-item"
+                    type="button"
+                    data-image="https://images.pexels.com/photos/18874269/pexels-photo-18874269.jpeg?auto=compress&cs=tinysrgb&w=900"
+                >
+
+                    <img
+                        src="https://images.pexels.com/photos/18874269/pexels-photo-18874269.jpeg?auto=compress&cs=tinysrgb&w=900"
+                        alt="Decoración nocturna"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
+
+                <button
+                    class="gallery-item"
+                    type="button"
+                    data-image="https://images.pexels.com/photos/16124014/pexels-photo-16124014.jpeg?auto=compress&cs=tinysrgb&w=900"
+                >
+
+                    <img
+                        src="https://images.pexels.com/photos/16124014/pexels-photo-16124014.jpeg?auto=compress&cs=tinysrgb&w=900"
+                        alt="Pareja celebrando"
+                        loading="lazy"
+                    >
+
+                </button>
+
+
+
+                <button
+                    class="gallery-item"
+                    type="button"
+                    data-image="https://images.pexels.com/photos/18959391/pexels-photo-18959391.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                >
+
+                    <img
+                        src="https://images.pexels.com/photos/18959391/pexels-photo-18959391.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                        alt="Celebración de boda"
+                        loading="lazy"
+                    >
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MENSAJE FINAL
+             ================================================= -->
+
+        <section class="final-message">
+
+            <div class="final-message-content">
+
+                <span>
+                    🥀
+                </span>
+
+                <blockquote>
+
+                    "Y vivieron felices...
+                    porque decidieron escribir
+                    juntos el final de su historia."
+
+                </blockquote>
+
+                <p>
+                    Jennifer & David
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LIGHTBOX
+         ===================================================== -->
+
+    <div
+        id="lightbox"
+        class="lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            id="closeLightbox"
+            class="lightbox-close"
+            type="button"
+            aria-label="Cerrar imagen"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ANIMACIÓN DEL ÚLTIMO HECHIZO
+         ===================================================== -->
+
+    <div
+        id="spellOverlay"
+        class="spell-overlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="spell-particles"
+            aria-hidden="true"
+        ></div>
+
+
+        <div class="spell-animation">
+
+
+            <div class="spell-magic-circle">
+
+                <div class="magic-circle-ring"></div>
+
+                <div class="magic-circle-symbol">
+                    🔮
+                </div>
+
+            </div>
+
+
+            <div
+                class="spell-animation-text"
+            >
+                ✨ EL HECHIZO HA SIDO LANZADO ✨
+            </div>
+
+
+            <p>
+                Tus palabras viajarán hasta Jennifer y David.
+            </p>
+
+
+            <button
+                id="sendSpellButton"
+                class="btn btn-primary"
+                type="button"
+            >
+                💌 Entregar el hechizo
+            </button>
+
+
+            <button
+                id="closeSpellButton"
+                class="spell-close-button"
+                type="button"
+            >
+                Cerrar
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
