@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#07050a"
+    >
+
+    <meta
+        name="description"
+        content="Invitación de boda de Jennifer y David - 31 de octubre de 2026"
+    >
+
+    <title>Jennifer & David | El último hechizo</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="no-scroll">
+
+    <!-- =========================================================
+         PANTALLA DE BIENVENIDA
+    ========================================================== -->
+    <div
+        id="welcomeScreen"
+        class="welcome-screen"
+        aria-label="Bienvenida"
+    >
+
+        <div class="welcome-moon"></div>
+
+        <div class="welcome-bats" aria-hidden="true">
+            🦇
+            <span>🦇</span>
+            <span>🦇</span>
+        </div>
+
+        <div class="welcome-content">
+
+            <span class="eyebrow">
+                UNA NOCHE ENCANTADA
+            </span>
+
+            <h1>
+                Jennifer
+                <span>&</span>
+                David
+            </h1>
+
+            <p class="welcome-date">
+                31 · 10 · 2026
+            </p>
+
+            <div class="welcome-divider">
+                <span>✦</span>
+                <span>🕯️</span>
+                <span>✦</span>
+            </div>
+
+            <p>
+                Hay noches que simplemente suceden...
+                <br>
+                y otras que parecen haber sido escritas por la luna.
+            </p>
+
+            <button
+                id="openInvitation"
+                class="button button-primary"
+                type="button"
+            >
+                ✨ Abrir invitación
+            </button>
+
+        </div>
+
+        <div class="welcome-pumpkins" aria-hidden="true">
+            🎃
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         AUDIO
+    ========================================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+        <source
+            src="./music/halloween.mp3"
+            type="audio/mpeg"
+        >
+
+        Tu navegador no soporta reproducción de audio HTML5.
+    </audio>
+
+
+    <!-- =========================================================
+         CONTROL DE MÚSICA
+    ========================================================== -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+    >
+        🔇
+    </button>
+
+
+    <!-- =========================================================
+         DECORACIÓN AMBIENTAL
+    ========================================================== -->
+
+    <div
+        class="ambient-decoration"
+        aria-hidden="true"
+    >
+
+        <span class="floating-bat bat-one">🦇</span>
+        <span class="floating-bat bat-two">🦇</span>
+        <span class="floating-bat bat-three">🦇</span>
+
+        <span class="floating-star star-one">✦</span>
+        <span class="floating-star star-two">✧</span>
+        <span class="floating-star star-three">✦</span>
+
+    </div>
+
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+    ========================================================== -->
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero section-dark">
+
+            <div class="hero-fog"></div>
+
+            <div class="hero-content reveal">
+
+                <span class="eyebrow">
+                    UNA BODA BAJO LA LUNA
+                </span>
+
+                <h1 class="hero-title">
+                    Jennifer
+                    <span>&</span>
+                    David
+                </h1>
+
+                <p class="hero-subtitle">
+                    Dos almas.
+                    <br>
+                    Una promesa.
+                    <br>
+                    Una noche que jamás olvidarán.
+                </p>
+
+                <div class="hero-symbol">
+                    <span>☾</span>
+                    <span>✦</span>
+                    <span>☽</span>
+                </div>
+
+                <p class="hero-date">
+                    SÁBADO · 31 DE OCTUBRE · 2026
+                </p>
+
+                <a
+                    href="#story"
+                    class="scroll-indicator"
+                    aria-label="Continuar"
+                >
+                    <span>Descubre la historia</span>
+                    <span>↓</span>
+                </a>
+
+            </div>
+
+
+            <!-- Bola de cristal -->
+            <div
+                class="hero-crystal reveal"
+                id="crystalBall"
+            >
+
+                <div class="crystal-orb">
+
+                    <div class="crystal-cloud cloud-one"></div>
+                    <div class="crystal-cloud cloud-two"></div>
+
+                    <span class="crystal-star">✦</span>
+                    <span class="crystal-star star-small">✧</span>
+
+                </div>
+
+                <div class="crystal-base"></div>
+
+                <p class="crystal-label">
+                    ORÁCULO DE LA NOCHE
+                </p>
+
+                <button
+                    id="consultCrystalButton"
+                    class="button button-outline"
+                    type="button"
+                >
+                    🔮 Consultar la bola de cristal
+                </button>
+
+                <p
+                    id="crystalMessage"
+                    class="crystal-message"
+                    aria-live="polite"
+                >
+                    La bola guarda un secreto...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             HISTORIA
+        ====================================================== -->
+
+        <section
+            id="story"
+            class="section section-light"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    EL COMIENZO
+                </span>
+
+                <h2>
+                    Algunas historias
+                    <br>
+                    parecen magia
+                </h2>
+
+                <div class="ornament">
+                    ✦
+                </div>
+
+            </div>
+
+            <div class="story-grid">
+
+                <article class="story-card reveal">
+
+                    <span class="story-number">
+                        I
+                    </span>
+
+                    <h3>
+                        El encuentro
+                    </h3>
+
+                    <p>
+                        Entre miles de caminos, dos personas
+                        encontraron el mismo destino.
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <span class="story-number">
+                        II
+                    </span>
+
+                    <h3>
+                        El hechizo
+                    </h3>
+
+                    <p>
+                        El tiempo convirtió un encuentro
+                        en complicidad, cariño y amor.
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <span class="story-number">
+                        III
+                    </span>
+
+                    <h3>
+                        La promesa
+                    </h3>
+
+                    <p>
+                        Ahora quieren escribir juntos
+                        el siguiente capítulo de su historia.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE
+        ====================================================== -->
+
+        <section class="quote-section section-dark">
+
+            <div class="quote-content reveal">
+
+                <span class="quote-symbol">
+                    “
+                </span>
+
+                <blockquote>
+                    El amor verdadero no necesita magia,
+                    pero esta noche decidimos ponerle un poco.
+                </blockquote>
+
+                <span class="quote-author">
+                    — Jennifer & David
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTADOR
+        ====================================================== -->
+
+        <section
+            id="countdown"
+            class="section countdown-section"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    EL TIEMPO SE ACERCA
+                </span>
+
+                <h2>
+                    La noche comienza en...
+                </h2>
+
+                <div class="ornament">
+                    ☾ ✦ ☽
+                </div>
+
+            </div>
+
+            <div class="countdown-grid reveal">
+
+                <div class="countdown-item">
+                    <strong id="days">00</strong>
+                    <span>Días</span>
+                </div>
+
+                <div class="countdown-item">
+                    <strong id="hours">00</strong>
+                    <span>Horas</span>
+                </div>
+
+                <div class="countdown-item">
+                    <strong id="minutes">00</strong>
+                    <span>Minutos</span>
+                </div>
+
+                <div class="countdown-item">
+                    <strong id="seconds">00</strong>
+                    <span>Segundos</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EVENTOS
+        ====================================================== -->
+
+        <section
+            id="events"
+            class="section section-dark"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    EL RITUAL
+                </span>
+
+                <h2>
+                    Dos lugares.
+                    <br>
+                    Una noche.
+                </h2>
+
+                <div class="ornament">
+                    🕯️ ✦ 🕯️
+                </div>
+
+            </div>
+
+
+            <div class="event-grid">
+
+                <!-- Iglesia -->
+                <article class="event-card reveal">
+
+                    <div class="event-icon">
+                        ⛪
+                    </div>
+
+                    <span class="event-time">
+                        18:00 HRS
+                    </span>
+
+                    <h3>
+                        Iglesia de Santa Luna
+                    </h3>
+
+                    <p>
+                        Calle de los Suspiros #666
+                        <br>
+                        Centro de Monterrey,
+                        Nuevo León
+                    </p>
+
+                    <div class="event-buttons">
+
+                        <a
+                            id="churchGoogleMaps"
+                            class="button button-small"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            📍 Google Maps
+                        </a>
+
+                        <a
+                            id="churchWaze"
+                            class="button button-small button-dark"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            🚗 Waze
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Recepción -->
+                <article class="event-card reveal">
+
+                    <div class="event-icon">
+                        🏰
+                    </div>
+
+                    <span class="event-time">
+                        20:00 HRS
+                    </span>
+
+                    <h3>
+                        Castillo de la Luna
+                    </h3>
+
+                    <p>
+                        Camino de la Luna #666
+                        <br>
+                        Monterrey,
+                        Nuevo León
+                    </p>
+
+                    <div class="event-buttons">
+
+                        <a
+                            id="venueGoogleMaps"
+                            class="button button-small"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            📍 Google Maps
+                        </a>
+
+                        <a
+                            id="venueWaze"
+                            class="button button-small button-dark"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            🚗 Waze
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LISTA DEL RITUAL
+        ====================================================== -->
+
+        <section
+            id="ritualList"
+            class="section ritual-section"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    EL RITUAL DE LA NOCHE
+                </span>
+
+                <h2>
+                    Así comenzará
+                    <br>
+                    nuestra historia
+                </h2>
+
+                <div class="ornament">
+                    🕯️
+                </div>
+
+            </div>
+
+
+            <div class="ritual-timeline">
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        17:30
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>🕯️</span>
+
+                        <h3>
+                            Llegada de los invitados
+                        </h3>
+
+                        <p>
+                            La noche comienza a despertar.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        18:00
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>⛪</span>
+
+                        <h3>
+                            El pacto
+                        </h3>
+
+                        <p>
+                            La ceremonia donde comienza
+                            oficialmente nuestra nueva historia.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        19:00
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>🥂</span>
+
+                        <h3>
+                            Brindis de la luna
+                        </h3>
+
+                        <p>
+                            Un brindis por el amor,
+                            la familia y los amigos.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        20:00
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>🏰</span>
+
+                        <h3>
+                            Recepción
+                        </h3>
+
+                        <p>
+                            La celebración continúa
+                            en el Castillo de la Luna.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        22:00
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>💃</span>
+
+                        <h3>
+                            Primer baile
+                        </h3>
+
+                        <p>
+                            Nuestro primer baile
+                            como esposos.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item reveal">
+
+                    <span class="ritual-time">
+                        00:00
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>🎃</span>
+
+                        <h3>
+                            La gran fiesta
+                        </h3>
+
+                        <p>
+                            Cuando la luna esté más alta,
+                            la magia apenas comenzará.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="ritual-item ritual-final reveal">
+
+                    <span class="ritual-time">
+                        FINAL
+                    </span>
+
+                    <div class="ritual-line"></div>
+
+                    <div class="ritual-content">
+
+                        <span>🔮</span>
+
+                        <h3>
+                            El último hechizo
+                        </h3>
+
+                        <p>
+                            Antes de partir,
+                            deja tus palabras para nosotros.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GALERÍA
+        ====================================================== -->
+
+        <section
+            id="gallery"
+            class="section gallery-section section-dark"
+        >
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    RECUERDOS DE LA NOCHE
+                </span>
+
+                <h2>
+                    Entre sombras,
+                    <br>
+                    velas y amor
+                </h2>
+
+                <p class="section-description">
+                    Una pequeña colección visual
+                    inspirada en nuestra noche.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <!-- Imagen 1 -->
+                <figure
+                    class="gallery-item gallery-large reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wedding_couple_%281294004%29.jpg?width=1400"
+                        alt="Pareja de boda"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        El comienzo
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 2 -->
+                <figure
+                    class="gallery-item reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wedding_couple_%281294168%29.jpg?width=1200"
+                        alt="Pareja de boda en blanco y negro"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        Dos almas
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 3 -->
+                <figure
+                    class="gallery-item reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wedding_couple_%281293933%29.jpg?width=1200"
+                        alt="Pareja durante una boda"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        La promesa
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 4 -->
+                <figure
+                    class="gallery-item gallery-wide reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Halloween_candles_and_pumpkins_%2838849689411%29.jpg?width=1400"
+                        alt="Velas y calabazas de Halloween"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        La noche de Halloween
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 5 -->
+                <figure
+                    class="gallery-item reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Carved_pumpkins_in_Scotland.jpg?width=1200"
+                        alt="Calabazas iluminadas con velas"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        La cosecha de octubre
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 6 -->
+                <figure
+                    class="gallery-item reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wedding_couple_%281293575%29.jpg?width=1200"
+                        alt="Pareja de novios"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        Para siempre
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 7 -->
+                <figure
+                    class="gallery-item gallery-wide reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Halloween_Pumpkins_%28Unsplash%29.jpg?width=1400"
+                        alt="Calabazas de Halloween"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        Bajo la luna
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Imagen 8 -->
+                <figure
+                    class="gallery-item reveal"
+                >
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wedding_couple_%281294916%29.jpg?width=1200"
+                        alt="Fotografía antigua de una pareja de boda"
+                        class="gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                    >
+
+                    <figcaption>
+                        Un destino
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CÓDIGO DE VESTIMENTA
+        ====================================================== -->
+
+        <section
+            id="dressCode"
+            class="section dress-section"
+        >
+
+            <div class="dress-card reveal">
+
+                <span class="eyebrow">
+                    CÓDIGO DE VESTIMENTA
+                </span>
+
+                <h2>
+                    Dark Elegance
+                </h2>
+
+                <div class="dress-symbol">
+                    🖤
+                </div>
+
+                <p>
+                    Elegancia oscura,
+                    tonos negros, vino,
+                    morados y detalles misteriosos.
+                </p>
+
+                <div class="dress-tags">
+
+                    <span>
+                        Negro
+                    </span>
+
+                    <span>
+                        Borgoña
+                    </span>
+
+                    <span>
+                        Morado
+                    </span>
+
+                    <span>
+                        Elegante
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EL ÚLTIMO HECHIZO
+        ====================================================== -->
+
+        <section
+            id="lastSpell"
+            class="section spell-section section-dark"
+        >
+
+            <div class="spell-card reveal">
+
+                <div class="spell-decoration">
+                    🔮
+                </div>
+
+                <span class="eyebrow">
+                    EL ÚLTIMO HECHIZO
+                </span>
+
+                <h2>
+                    Antes de partir...
+                </h2>
+
+                <p>
+                    Deja un deseo, consejo,
+                    recuerdo o mensaje para
+                    Jennifer y David.
+                </p>
+
+                <p class="spell-description">
+                    Tus palabras se convertirán
+                    en parte de esta noche mágica.
+                </p>
+
+
+                <!-- Nombre -->
+                <div class="form-group">
+
+                    <label for="spellGuestName">
+                        Tu nombre
+                    </label>
+
+                    <input
+                        id="spellGuestName"
+                        type="text"
+                        maxlength="80"
+                        autocomplete="name"
+                        placeholder="Opcional"
+                    >
+
+                </div>
+
+
+                <!-- Mensaje -->
+                <div class="form-group">
+
+                    <label for="spellMessage">
+                        Tu mensaje
+                    </label>
+
+                    <textarea
+                        id="spellMessage"
+                        maxlength="500"
+                        rows="6"
+                        placeholder="Escribe aquí tus palabras..."
+                    ></textarea>
+
+                    <div class="character-counter">
+                        <span id="spellCounter">
+                            0
+                        </span>
+                        / 500
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="castSpellButton"
+                    class="button button-primary"
+                    type="button"
+                >
+                    ✨ Lanzar el hechizo
+                </button>
+
+
+                <!-- Resultado -->
+                <div
+                    id="spellResult"
+                    class="spell-result"
+                    hidden
+                >
+
+                    <span class="spell-result-icon">
+                        ✨
+                    </span>
+
+                    <h3>
+                        EL HECHIZO HA SIDO LANZADO
+                    </h3>
+
+                    <p>
+                        Tus palabras viajarán
+                        hasta Jennifer y David.
+                    </p>
+
+                    <button
+                        id="deliverSpellButton"
+                        class="button button-outline"
+                        type="button"
+                    >
+                        💌 Entregar el hechizo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONFIRMACIÓN
+        ====================================================== -->
+
+        <section
+            id="rsvp"
+            class="section rsvp-section"
+        >
+
+            <div class="rsvp-card reveal">
+
+                <span class="eyebrow">
+                    TU PRESENCIA ES EL MEJOR REGALO
+                </span>
+
+                <h2>
+                    ¿Serás parte
+                    <br>
+                    de esta noche?
+                </h2>
+
+                <p>
+                    Confirma tu asistencia antes del
+                    <strong>
+                        15 de octubre de 2026
+                    </strong>
+                </p>
+
+                <button
+                    id="whatsappButton"
+                    class="button button-whatsapp"
+                    type="button"
+                >
+                    💬 Confirmar por WhatsApp
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         OVERLAY DEL HECHIZO
+    ========================================================== -->
+
+    <div
+        id="spellOverlay"
+        class="spell-overlay"
+        aria-hidden="true"
+    >
+
+        <div class="spell-animation">
+
+            <div class="magic-circle">
+                ✦
+            </div>
+
+            <p>
+                El hechizo está viajando...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         LIGHTBOX
+    ========================================================== -->
+
+    <div
+        id="lightbox"
+        class="lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            id="closeLightbox"
+            class="lightbox-close"
+            type="button"
+            aria-label="Cerrar imagen"
+        >
+            ×
+        </button>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+            draggable="false"
+        >
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =========================================================
+         ESCUDO DE PRIVACIDAD
+    ========================================================== -->
+
+    <div
+        id="privacyShield"
+        class="privacy-shield"
+        aria-hidden="true"
+    >
+
+        <div class="privacy-shield-content">
+
+            <span>
+                🔮
+            </span>
+
+            <h2>
+                Esta noche es especial
+            </h2>
+
+            <p>
+                La invitación está protegida.
+            </p>
+
+            <small>
+                Regresa a la invitación para continuar.
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-symbol">
+            ☾ ✦ ☽
+        </div>
+
+        <p>
+            Jennifer & David
+        </p>
+
+        <span>
+            31 · 10 · 2026
+        </span>
+
+        <small>
+            Hecho con amor, magia y un poco de oscuridad.
+        </small>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="./script.js" defer></script>
+
+</body>
+</html>
