@@ -1,28 +1,30 @@
 /* ============================================================
-   INVITACIÓN DE BODA
-   Jennifer & David
+   JENNIFER & DAVID
+   Sistema interactivo de invitación
 
    Funcionalidades:
 
-   - Configuración de la boda
-   - Música de fondo
-   - Contador regresivo
+   - Configuración
+   - Música
+   - Contador
+   - Invitación personalizada
    - Google Maps
    - Waze
    - WhatsApp
    - Animaciones
+   - Partículas
+   - Misiones
+   - Oráculo
    - Galería
-   - Lightbox
-   - Protección contra copia
-   - Protección visual al perder el foco
-   - Bloqueo de combinaciones comunes
+   - RSVP
+   - Protección de contenido
    ============================================================ */
 
 "use strict";
 
 
 /* ============================================================
-   CONFIGURACIÓN PRINCIPAL
+   CONFIGURACIÓN
    ============================================================ */
 
 const weddingConfig = {
@@ -36,43 +38,17 @@ const weddingConfig = {
     },
 
 
-    /*
-     * Fecha de la ceremonia.
-     *
-     * IMPORTANTE:
-     * Reemplaza esta fecha por la fecha real.
-     */
-
     weddingDate:
         "2026-10-31T18:00:00",
 
 
-    /*
-     * Número de WhatsApp.
-     *
-     * Formato:
-     * código de país + número
-     *
-     * Ejemplo México:
-     * 52 + número
-     */
-
     whatsapp: {
 
         phone:
-            "528112345678",
-
-        message:
-            "Hola Jennifer y David, confirmo mi asistencia a su boda."
+            "528112345678"
 
     },
 
-
-    /*
-     * Ubicación de la iglesia.
-     *
-     * Actualmente son coordenadas ficticias.
-     */
 
     church: {
 
@@ -84,10 +60,6 @@ const weddingConfig = {
 
     },
 
-
-    /*
-     * Ubicación del salón.
-     */
 
     venue: {
 
@@ -103,7 +75,7 @@ const weddingConfig = {
 
 
 /* ============================================================
-   ELEMENTOS DEL DOM
+   ELEMENTOS
    ============================================================ */
 
 const elements = {
@@ -128,27 +100,24 @@ const elements = {
             "musicButton"
         ),
 
+    guestName:
+        document.getElementById(
+            "guestName"
+        ),
+
     countdown: {
 
         days:
-            document.getElementById(
-                "days"
-            ),
+            document.getElementById("days"),
 
         hours:
-            document.getElementById(
-                "hours"
-            ),
+            document.getElementById("hours"),
 
         minutes:
-            document.getElementById(
-                "minutes"
-            ),
+            document.getElementById("minutes"),
 
         seconds:
-            document.getElementById(
-                "seconds"
-            )
+            document.getElementById("seconds")
 
     },
 
@@ -176,9 +145,54 @@ const elements = {
 
     },
 
-    whatsapp:
+    oracleButton:
         document.getElementById(
-            "whatsappButton"
+            "oracleButton"
+        ),
+
+    oracleResult:
+        document.getElementById(
+            "oracleResult"
+        ),
+
+    songButton:
+        document.getElementById(
+            "songButton"
+        ),
+
+    equalizer:
+        document.querySelector(
+            ".equalizer"
+        ),
+
+    guestInput:
+        document.getElementById(
+            "guestInput"
+        ),
+
+    guestCount:
+        document.getElementById(
+            "guestCount"
+        ),
+
+    confirmAttendance:
+        document.getElementById(
+            "confirmAttendance"
+        ),
+
+    declineAttendance:
+        document.getElementById(
+            "declineAttendance"
+        ),
+
+    rsvpMessage:
+        document.getElementById(
+            "rsvpMessage"
+        ),
+
+    missionComplete:
+        document.getElementById(
+            "missionComplete"
         ),
 
     lightbox:
@@ -194,6 +208,11 @@ const elements = {
     closeLightbox:
         document.getElementById(
             "closeLightbox"
+        ),
+
+    particles:
+        document.getElementById(
+            "particles"
         )
 
 };
@@ -224,23 +243,11 @@ function updateMusicButton(
         String(isPlaying)
     );
 
-
-    elements.musicButton.setAttribute(
-        "aria-label",
-        isPlaying
-            ? "Pausar música"
-            : "Reproducir música"
-    );
-
 }
 
 
 /**
  * Reproduce la música.
- *
- * La reproducción se ejecuta después
- * de una interacción del usuario para
- * cumplir las políticas de autoplay.
  *
  * @returns {Promise<boolean>}
  */
@@ -252,33 +259,24 @@ async function playMusic() {
         elements.backgroundMusic.volume =
             0.35;
 
-
-        /*
-         * Cargamos el recurso antes
-         * de intentar reproducirlo.
-         */
-
-        elements.backgroundMusic.load();
-
-
         await elements.backgroundMusic.play();
-
 
         updateMusicButton(true);
 
+        elements.equalizer.classList.add(
+            "active"
+        );
 
         return true;
 
     } catch (error) {
 
         console.error(
-            "No se pudo reproducir la música.",
+            "No se pudo reproducir el audio:",
             error
         );
 
-
         updateMusicButton(false);
-
 
         return false;
 
@@ -297,36 +295,28 @@ function pauseMusic() {
 
     updateMusicButton(false);
 
+    elements.equalizer.classList.remove(
+        "active"
+    );
+
 }
 
 
 /* ============================================================
-   APERTURA DE LA INVITACIÓN
+   APERTURA
    ============================================================ */
 
 elements.openInvitation.addEventListener(
     "click",
     async function () {
 
-        /*
-         * Ocultamos la pantalla inicial.
-         */
-
         elements.welcomeScreen.classList.add(
             "hidden"
         );
 
-
         document.body.classList.remove(
             "no-scroll"
         );
-
-
-        /*
-         * La reproducción ocurre
-         * directamente como respuesta
-         * al click del usuario.
-         */
 
         await playMusic();
 
@@ -335,7 +325,7 @@ elements.openInvitation.addEventListener(
 
 
 /* ============================================================
-   BOTÓN DE MÚSICA
+   CONTROL DE MÚSICA
    ============================================================ */
 
 elements.musicButton.addEventListener(
@@ -359,90 +349,75 @@ elements.musicButton.addEventListener(
 
 
 /* ============================================================
-   ERRORES DEL AUDIO
+   BOTÓN NUESTRA CANCIÓN
    ============================================================ */
 
-elements.backgroundMusic.addEventListener(
-    "error",
-    function () {
+elements.songButton.addEventListener(
+    "click",
+    async function () {
 
-        console.error(
-            "No se pudo cargar el archivo de música."
-        );
+        if (
+            elements.backgroundMusic.paused
+        ) {
 
-        console.error(
-            "Ruta esperada:"
-        );
+            const success =
+                await playMusic();
 
-        console.error(
-            "./music/halloween.mp3"
-        );
+            if (success) {
+
+                elements.songButton.textContent =
+                    "❚❚ Pausar nuestra canción";
+
+            }
+
+        } else {
+
+            pauseMusic();
+
+            elements.songButton.textContent =
+                "▶ Reproducir nuestra canción";
+
+        }
 
     }
 );
 
 
 /* ============================================================
-   VALIDACIÓN DE CARGA DEL AUDIO
-   ============================================================ */
-
-elements.backgroundMusic.addEventListener(
-    "canplay",
-    function () {
-
-        console.log(
-            "✓ Música disponible."
-        );
-
-    }
-);
-
-
-/* ============================================================
-   CONTADOR REGRESIVO
+   CONTADOR
    ============================================================ */
 
 /**
- * Actualiza el contador de la boda.
+ * Actualiza la cuenta regresiva.
  */
 
 function updateCountdown() {
 
-    const weddingDate =
+    const targetDate =
         new Date(
             weddingConfig.weddingDate
         );
 
-    const currentDate =
+    const now =
         new Date();
 
-
     const difference =
-        weddingDate.getTime()
+        targetDate.getTime()
         -
-        currentDate.getTime();
+        now.getTime();
 
-
-    /*
-     * Si la fecha ya llegó,
-     * mostramos ceros.
-     */
 
     if (
         difference <= 0
     ) {
 
-        elements.countdown.days.textContent =
-            "00";
-
-        elements.countdown.hours.textContent =
-            "00";
-
-        elements.countdown.minutes.textContent =
-            "00";
-
-        elements.countdown.seconds.textContent =
-            "00";
+        Object.values(
+            elements.countdown
+        ).forEach(
+            element => {
+                element.textContent = "00";
+            }
+        );
 
         return;
 
@@ -463,15 +438,13 @@ function updateCountdown() {
 
     const hours =
         Math.floor(
-            (totalSeconds % 86400)
-            / 3600
+            (totalSeconds % 86400) / 3600
         );
 
 
     const minutes =
         Math.floor(
-            (totalSeconds % 3600)
-            / 60
+            (totalSeconds % 3600) / 60
         );
 
 
@@ -480,31 +453,19 @@ function updateCountdown() {
 
 
     elements.countdown.days.textContent =
-        String(days).padStart(
-            2,
-            "0"
-        );
+        String(days).padStart(2, "0");
 
 
     elements.countdown.hours.textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        );
+        String(hours).padStart(2, "0");
 
 
     elements.countdown.minutes.textContent =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
+        String(minutes).padStart(2, "0");
 
 
     elements.countdown.seconds.textContent =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
+        String(seconds).padStart(2, "0");
 
 }
 
@@ -523,7 +484,7 @@ setInterval(
    ============================================================ */
 
 /**
- * Genera una URL de Google Maps.
+ * Genera enlace de Google Maps.
  *
  * @param {string} latitude
  * @param {string} longitude
@@ -554,8 +515,7 @@ function createGoogleMapsUrl(
    ============================================================ */
 
 /**
- * Genera una URL de navegación
- * para Waze.
+ * Genera enlace de Waze.
  *
  * @param {string} latitude
  * @param {string} longitude
@@ -580,7 +540,7 @@ function createWazeUrl(
 
 
 /* ============================================================
-   CONFIGURACIÓN DE MAPAS
+   ASIGNACIÓN DE MAPAS
    ============================================================ */
 
 elements.maps.churchGoogle.href =
@@ -612,31 +572,110 @@ elements.maps.venueWaze.href =
 
 
 /* ============================================================
-   WHATSAPP
+   INVITADO PERSONALIZADO
    ============================================================ */
 
 /**
- * Genera el enlace de WhatsApp.
+ * Obtiene el nombre desde la URL.
  *
- * @returns {string}
+ * Ejemplo:
+ *
+ * index.html?guest=David
  */
 
-function createWhatsAppUrl() {
+function loadGuestName() {
 
-    return (
-        "https://wa.me/" +
-        weddingConfig.whatsapp.phone +
-        "?text=" +
-        encodeURIComponent(
-            weddingConfig.whatsapp.message
-        )
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const guest =
+        params.get("guest");
+
+
+    if (
+        guest &&
+        guest.trim().length > 0
+    ) {
+
+        const cleanGuest =
+            guest
+                .trim()
+                .substring(0, 60);
+
+
+        elements.guestName.textContent =
+            cleanGuest;
+
+        elements.guestInput.value =
+            cleanGuest;
+
+    }
+
+}
+
+
+loadGuestName();
+
+
+/* ============================================================
+   PARTÍCULAS
+   ============================================================ */
+
+/**
+ * Genera partículas ambientales.
+ */
+
+function createParticles() {
+
+    const fragment =
+        document.createDocumentFragment();
+
+
+    for (
+        let index = 0;
+        index < 35;
+        index++
+    ) {
+
+        const particle =
+            document.createElement(
+                "span"
+            );
+
+
+        particle.className =
+            "particle";
+
+
+        particle.style.left =
+            `${Math.random() * 100}%`;
+
+
+        particle.style.animationDuration =
+            `${8 + Math.random() * 15}s`;
+
+
+        particle.style.animationDelay =
+            `${Math.random() * 10}s`;
+
+
+        fragment.appendChild(
+            particle
+        );
+
+    }
+
+
+    elements.particles.appendChild(
+        fragment
     );
 
 }
 
 
-elements.whatsapp.href =
-    createWhatsAppUrl();
+createParticles();
 
 
 /* ============================================================
@@ -648,12 +687,6 @@ const revealElements =
         ".reveal"
     );
 
-
-/*
- * IntersectionObserver permite ejecutar
- * las animaciones solamente cuando
- * los elementos aparecen en pantalla.
- */
 
 const revealObserver =
     new IntersectionObserver(
@@ -684,13 +717,13 @@ const revealObserver =
 
         },
         {
-            threshold: 0.15
+            threshold: 0.12
         }
     );
 
 
 revealElements.forEach(
-    function (element) {
+    element => {
 
         revealObserver.observe(
             element
@@ -701,7 +734,120 @@ revealElements.forEach(
 
 
 /* ============================================================
-   GALERÍA / LIGHTBOX
+   MISIÓN
+   ============================================================ */
+
+const missionItems =
+    document.querySelectorAll(
+        ".mission-item"
+    );
+
+
+missionItems.forEach(
+    function (item) {
+
+        item.addEventListener(
+            "click",
+            function () {
+
+                item.classList.toggle(
+                    "completed"
+                );
+
+
+                const completed =
+                    document.querySelectorAll(
+                        ".mission-item.completed"
+                    ).length;
+
+
+                if (
+                    completed ===
+                    missionItems.length
+                ) {
+
+                    elements.missionComplete.classList.add(
+                        "show"
+                    );
+
+                } else {
+
+                    elements.missionComplete.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* ============================================================
+   ORÁCULO
+   ============================================================ */
+
+const oracleMessages = [
+
+    "🔮 El destino dice que esta noche terminarás bailando.",
+
+    "🕯️ Una copa brindará por una nueva historia.",
+
+    "🦇 El oráculo predice una noche difícil de olvidar.",
+
+    "❤️ Alguien te invitará a bailar antes de medianoche.",
+
+    "🎃 Tu misión es disfrutar cada momento.",
+
+    "🥂 Esta noche brindarás por Jennifer y David.",
+
+    "✨ Una fotografía capturará uno de tus mejores recuerdos.",
+
+    "🌙 La noche será larga. La fiesta será aún más larga."
+
+];
+
+
+elements.oracleButton.addEventListener(
+    "click",
+    function () {
+
+        elements.oracleResult.style.opacity =
+            "0";
+
+
+        setTimeout(
+            function () {
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random()
+                        *
+                        oracleMessages.length
+                    );
+
+
+                elements.oracleResult.textContent =
+                    oracleMessages[
+                        randomIndex
+                    ];
+
+
+                elements.oracleResult.style.opacity =
+                    "1";
+
+            },
+            300
+        );
+
+    }
+);
+
+
+/* ============================================================
+   LIGHTBOX
    ============================================================ */
 
 const galleryImages =
@@ -720,11 +866,9 @@ galleryImages.forEach(
                 elements.lightboxImage.src =
                     image.src;
 
-
                 elements.lightbox.classList.add(
                     "active"
                 );
-
 
                 elements.lightbox.setAttribute(
                     "aria-hidden",
@@ -739,7 +883,7 @@ galleryImages.forEach(
 
 
 /**
- * Cierra el lightbox.
+ * Cierra la galería.
  */
 
 function closeLightbox() {
@@ -748,12 +892,10 @@ function closeLightbox() {
         "active"
     );
 
-
     elements.lightbox.setAttribute(
         "aria-hidden",
         "true"
     );
-
 
     elements.lightboxImage.src = "";
 
@@ -784,12 +926,161 @@ elements.lightbox.addEventListener(
 
 
 /* ============================================================
-   PROTECCIÓN CONTRA COPIADO
+   RSVP
    ============================================================ */
 
-/*
- * Bloqueamos el menú contextual.
+/**
+ * Limpia y limita el nombre del invitado.
+ *
+ * @returns {string}
  */
+
+function getGuestName() {
+
+    return elements.guestInput.value
+        .trim()
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .substring(
+            0,
+            60
+        );
+
+}
+
+
+/**
+ * Crea un enlace de WhatsApp.
+ *
+ * @param {string} message
+ * @returns {string}
+ */
+
+function createWhatsAppUrl(
+    message
+) {
+
+    return (
+        "https://wa.me/" +
+        weddingConfig.whatsapp.phone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        )
+    );
+
+}
+
+
+/**
+ * Confirma asistencia.
+ */
+
+elements.confirmAttendance.addEventListener(
+    "click",
+    function () {
+
+        const name =
+            getGuestName();
+
+
+        const companions =
+            elements.guestCount.value;
+
+
+        if (
+            name.length < 2
+        ) {
+
+            elements.rsvpMessage.textContent =
+                "Por favor escribe tu nombre.";
+
+            elements.guestInput.focus();
+
+            return;
+
+        }
+
+
+        const message =
+            `Hola Jennifer y David. Soy ${name} y confirmo mi asistencia a su boda del 31 de octubre de 2026. Acompañantes: ${companions}.`;
+
+
+        const whatsappUrl =
+            createWhatsAppUrl(
+                message
+            );
+
+
+        elements.rsvpMessage.textContent =
+            "🎃 Preparando tu confirmación...";
+
+
+        window.open(
+            whatsappUrl,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+);
+
+
+/**
+ * Rechazo de invitación.
+ */
+
+elements.declineAttendance.addEventListener(
+    "click",
+    function () {
+
+        const name =
+            getGuestName();
+
+
+        if (
+            name.length < 2
+        ) {
+
+            elements.rsvpMessage.textContent =
+                "Por favor escribe tu nombre.";
+
+            elements.guestInput.focus();
+
+            return;
+
+        }
+
+
+        const message =
+            `Hola Jennifer y David. Soy ${name}. Lamentablemente no podré acompañarlos el 31 de octubre de 2026, pero les deseo una hermosa celebración.`;
+
+
+        const whatsappUrl =
+            createWhatsAppUrl(
+                message
+            );
+
+
+        elements.rsvpMessage.textContent =
+            "🥀 Preparando mensaje...";
+
+
+        window.open(
+            whatsappUrl,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+);
+
+
+/* ============================================================
+   PROTECCIÓN CONTRA COPIA
+   ============================================================ */
 
 document.addEventListener(
     "contextmenu",
@@ -801,10 +1092,6 @@ document.addEventListener(
 );
 
 
-/*
- * Bloqueamos copiar.
- */
-
 document.addEventListener(
     "copy",
     function (event) {
@@ -814,10 +1101,6 @@ document.addEventListener(
     }
 );
 
-
-/*
- * Bloqueamos cortar.
- */
 
 document.addEventListener(
     "cut",
@@ -829,10 +1112,6 @@ document.addEventListener(
 );
 
 
-/*
- * Bloqueamos selección.
- */
-
 document.addEventListener(
     "selectstart",
     function (event) {
@@ -843,29 +1122,18 @@ document.addEventListener(
 );
 
 
-/*
- * Bloqueamos arrastrar imágenes.
- */
-
 document.addEventListener(
     "dragstart",
     function (event) {
 
-        if (
-            event.target.tagName ===
-            "IMG"
-        ) {
-
-            event.preventDefault();
-
-        }
+        event.preventDefault();
 
     }
 );
 
 
 /* ============================================================
-   PROTECCIÓN DE TECLADO
+   BLOQUEO DE ATAJOS COMUNES
    ============================================================ */
 
 document.addEventListener(
@@ -876,131 +1144,39 @@ document.addEventListener(
             event.key.toLowerCase();
 
 
-        /*
-         * Ctrl + C
-         */
+        const blockedShortcuts = [
 
-        if (
-            event.ctrlKey &&
-            key === "c"
-        ) {
+            event.ctrlKey && key === "c",
 
-            event.preventDefault();
+            event.ctrlKey && key === "x",
 
-        }
+            event.ctrlKey && key === "u",
 
+            event.ctrlKey && key === "s",
 
-        /*
-         * Ctrl + X
-         */
+            event.ctrlKey && key === "p",
 
-        if (
-            event.ctrlKey &&
-            key === "x"
-        ) {
-
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + U
-         *
-         * Ver código fuente.
-         */
-
-        if (
-            event.ctrlKey &&
-            key === "u"
-        ) {
-
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + S
-         */
-
-        if (
-            event.ctrlKey &&
-            key === "s"
-        ) {
-
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + P
-         */
-
-        if (
-            event.ctrlKey &&
-            key === "p"
-        ) {
-
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + Shift + I
-         *
-         * DevTools.
-         */
-
-        if (
             event.ctrlKey &&
             event.shiftKey &&
-            key === "i"
-        ) {
+            key === "i",
 
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + Shift + J
-         */
-
-        if (
             event.ctrlKey &&
             event.shiftKey &&
-            key === "j"
-        ) {
+            key === "j",
 
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * Ctrl + Shift + C
-         */
-
-        if (
             event.ctrlKey &&
             event.shiftKey &&
-            key === "c"
-        ) {
+            key === "c",
 
-            event.preventDefault();
-
-        }
-
-
-        /*
-         * F12
-         */
-
-        if (
             event.key === "F12"
+
+        ];
+
+
+        if (
+            blockedShortcuts.some(
+                Boolean
+            )
         ) {
 
             event.preventDefault();
@@ -1012,18 +1188,26 @@ document.addEventListener(
 
 
 /* ============================================================
-   PROTECCIÓN CONTRA PÉRDIDA DE VISIBILIDAD
+   PROTECCIÓN VISUAL
    ============================================================ */
 
-/*
- * Cuando el usuario cambia de pestaña,
- * minimiza el navegador o pierde visibilidad,
- * ocultamos visualmente la invitación.
- *
- * IMPORTANTE:
- * Esto NO impide una captura de pantalla.
- * Solamente reduce la exposición del contenido.
- */
+function enableProtectedView() {
+
+    document.body.classList.add(
+        "protected-view"
+    );
+
+}
+
+
+function disableProtectedView() {
+
+    document.body.classList.remove(
+        "protected-view"
+    );
+
+}
+
 
 document.addEventListener(
     "visibilitychange",
@@ -1033,15 +1217,11 @@ document.addEventListener(
             document.hidden
         ) {
 
-            document.body.classList.add(
-                "protected-view"
-            );
+            enableProtectedView();
 
         } else {
 
-            document.body.classList.remove(
-                "protected-view"
-            );
+            disableProtectedView();
 
         }
 
@@ -1049,44 +1229,38 @@ document.addEventListener(
 );
 
 
-/* ============================================================
-   PROTECCIÓN AL PERDER EL FOCO
-   ============================================================ */
-
 window.addEventListener(
     "blur",
-    function () {
-
-        document.body.classList.add(
-            "protected-view"
-        );
-
-    }
+    enableProtectedView
 );
 
 
 window.addEventListener(
     "focus",
-    function () {
-
-        document.body.classList.remove(
-            "protected-view"
-        );
-
-    }
+    disableProtectedView
 );
 
 
 /* ============================================================
-   BLOQUEO DE IMPRESIÓN
+   PREVENIR IMPRESIÓN
    ============================================================ */
 
 window.addEventListener(
     "beforeprint",
+    enableProtectedView
+);
+
+
+/* ============================================================
+   ERROR DE AUDIO
+   ============================================================ */
+
+elements.backgroundMusic.addEventListener(
+    "error",
     function () {
 
-        document.body.classList.add(
-            "protected-view"
+        console.error(
+            "No se pudo cargar ./music/halloween.mp3"
         );
 
     }
@@ -1094,13 +1268,13 @@ window.addEventListener(
 
 
 /* ============================================================
-   MENSAJE DE INICIO
+   INICIO
    ============================================================ */
 
 console.log(
-    "Jennifer & David — Invitación cargada correctamente."
+    "Jennifer & David — Invitación 2.0"
 );
 
 console.log(
-    "Sistema de protección activado."
+    "Sistema interactivo cargado correctamente."
 );
