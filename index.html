@@ -16,35 +16,42 @@
 
     <meta
         name="description"
-        content="Invitación de boda de Jennifer y David. Una noche mágica con temática Halloween."
+        content="Invitación de boda de Jennifer y David"
     >
 
     <meta
         name="theme-color"
-        content="#080808"
+        content="#090909"
     >
 
-    <title>Jennifer & David | Nuestra boda</title>
+    <title>
+        Jennifer & David | Nuestra Boda
+    </title>
 
 
     <!-- =====================================================
          FUENTES
          ===================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
 
     <!-- =====================================================
-         ESTILOS
+         HOJA DE ESTILOS
          ===================================================== -->
 
     <link
@@ -55,27 +62,35 @@
 </head>
 
 
-<body>
+<body class="no-scroll">
+
+
+    <!-- =====================================================
+         MARCA DE AGUA
+         ===================================================== -->
+
+    <div
+        class="watermark"
+        aria-hidden="true"
+    >
+        Jennifer ♥ David
+    </div>
 
 
     <!-- =====================================================
          PANTALLA DE BIENVENIDA
          ===================================================== -->
 
-    <div
+    <section
         id="welcomeScreen"
         class="welcome-screen"
     >
 
-        <div class="welcome-decoration">
-            🦇
-        </div>
-
         <div class="welcome-content">
 
-            <span class="small-title">
-                NUESTRA NOCHE
-            </span>
+            <p class="welcome-small">
+                ESTÁS INVITADO A
+            </p>
 
             <h1>
                 Jennifer
@@ -83,9 +98,8 @@
                 David
             </h1>
 
-            <p>
-                Una historia de amor...
-                escrita bajo la luna.
+            <p class="welcome-date">
+                31 · OCTUBRE · 2026
             </p>
 
             <button
@@ -93,28 +107,34 @@
                 class="main-button"
                 type="button"
             >
-                🕯️ Abrir invitación
+                Abrir invitación
             </button>
+
+            <p class="music-hint">
+                🔊 Toca para entrar con música
+            </p>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         AUDIO
+         MÚSICA DE FONDO
          ===================================================== -->
 
     <audio
         id="backgroundMusic"
         loop
-        preload="metadata"
+        preload="auto"
     >
 
         <source
-            src="music/halloween.mp3"
+            src="./music/halloween.mp3"
             type="audio/mpeg"
         >
+
+        Tu navegador no soporta audio HTML5.
 
     </audio>
 
@@ -142,20 +162,17 @@
 
 
         <!-- =================================================
-             PORTADA
+             HERO
              ================================================= -->
 
         <section class="hero">
 
-            <div class="moon"></div>
+            <div class="hero-overlay"></div>
 
-            <div class="fog fog-one"></div>
-            <div class="fog fog-two"></div>
+            <div class="hero-content reveal">
 
-            <div class="hero-content">
-
-                <p class="eyebrow">
-                    HALLOWEEN WEDDING
+                <p class="hero-subtitle">
+                    UNA NOCHE PARA RECORDAR
                 </p>
 
                 <h1>
@@ -164,61 +181,12 @@
                     David
                 </h1>
 
-                <div class="divider">
-                    <span>✦</span>
-                </div>
-
                 <p class="hero-date">
-                    31 · OCTUBRE · 2026
+                    31 · 10 · 2026
                 </p>
 
-                <p class="hero-message">
-                    Hasta que la muerte nos separe...
-                </p>
-
-                <a
-                    href="#story"
-                    class="scroll-button"
-                    aria-label="Continuar"
-                >
-                    ↓
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             HISTORIA
-             ================================================= -->
-
-        <section
-            id="story"
-            class="section story"
-        >
-
-            <div class="section-content reveal">
-
-                <span class="section-label">
-                    NUESTRA HISTORIA
-                </span>
-
-                <h2>
-                    Una historia que comenzó
-                    <span>entre sombras...</span>
-                </h2>
-
-                <p>
-                    Dos almas destinadas a encontrarse,
-                    una noche llena de magia y un amor
-                    que decidió quedarse para siempre.
-                </p>
-
-                <p>
-                    Jennifer y David desean compartir
-                    contigo el momento en que unirán
-                    sus vidas para siempre.
+                <p class="hero-location">
+                    Monterrey, Nuevo León
                 </p>
 
             </div>
@@ -227,78 +195,107 @@
 
 
         <!-- =================================================
-             CUENTA REGRESIVA
+             INTRODUCCIÓN
              ================================================= -->
 
-        <section class="countdown-section">
+        <section class="section intro reveal">
 
-            <div class="section-content reveal">
+            <p class="section-label">
+                NUESTRA HISTORIA
+            </p>
 
-                <span class="section-label">
-                    LA NOCHE SE ACERCA
-                </span>
+            <h2>
+                Dos almas,
+                <br>
+                una historia.
+            </h2>
 
-                <h2>
-                    Nuestro
-                    <span>para siempre</span>
-                </h2>
+            <p>
+                Hay historias que comienzan de manera inesperada,
+                pero terminan convirtiéndose en aquello que
+                siempre estuvimos buscando.
+            </p>
 
-                <div
-                    id="countdown"
-                    class="countdown"
-                    aria-label="Cuenta regresiva"
-                >
+            <p>
+                Después de tantos momentos compartidos,
+                queremos celebrar el inicio de una nueva etapa
+                junto a las personas que forman parte de nuestra vida.
+            </p>
 
-                    <div class="countdown-item">
+            <div class="decorative-symbol">
+                ✦
+            </div>
 
-                        <strong id="days">
-                            00
-                        </strong>
-
-                        <span>
-                            DÍAS
-                        </span>
-
-                    </div>
-
-
-                    <div class="countdown-item">
-
-                        <strong id="hours">
-                            00
-                        </strong>
-
-                        <span>
-                            HORAS
-                        </span>
-
-                    </div>
+        </section>
 
 
-                    <div class="countdown-item">
+        <!-- =================================================
+             CONTADOR
+             ================================================= -->
 
-                        <strong id="minutes">
-                            00
-                        </strong>
+        <section class="section countdown-section reveal">
 
-                        <span>
-                            MINUTOS
-                        </span>
+            <p class="section-label">
+                FALTAN
+            </p>
 
-                    </div>
+            <h2>
+                Para nuestro gran día
+            </h2>
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
+
+                <div class="countdown-item">
+
+                    <span id="days">
+                        00
+                    </span>
+
+                    <small>
+                        DÍAS
+                    </small>
+
+                </div>
 
 
-                    <div class="countdown-item">
+                <div class="countdown-item">
 
-                        <strong id="seconds">
-                            00
-                        </strong>
+                    <span id="hours">
+                        00
+                    </span>
 
-                        <span>
-                            SEGUNDOS
-                        </span>
+                    <small>
+                        HORAS
+                    </small>
 
-                    </div>
+                </div>
+
+
+                <div class="countdown-item">
+
+                    <span id="minutes">
+                        00
+                    </span>
+
+                    <small>
+                        MINUTOS
+                    </small>
+
+                </div>
+
+
+                <div class="countdown-item">
+
+                    <span id="seconds">
+                        00
+                    </span>
+
+                    <small>
+                        SEGUNDOS
+                    </small>
 
                 </div>
 
@@ -308,189 +305,151 @@
 
 
         <!-- =================================================
-             EVENTOS
+             CEREMONIA
              ================================================= -->
 
-        <section class="section event-section">
+        <section class="section event-section reveal">
 
-            <div class="section-content">
+            <p class="section-label">
+                CEREMONIA
+            </p>
 
-                <span class="section-label">
-                    LA CELEBRACIÓN
-                </span>
+            <div class="event-card">
+
+                <div class="event-icon">
+                    ⛪
+                </div>
 
                 <h2>
-                    Acompáñanos en
-                    <span>esta noche especial</span>
+                    Iglesia de Santa Luna
                 </h2>
 
+                <p class="event-time">
+                    6:00 PM
+                </p>
 
-                <div class="event-grid">
+                <p class="event-address">
+                    Calle de los Suspiros #666
+                    <br>
+                    Centro de Monterrey,
+                    Nuevo León
+                </p>
 
+                <div class="map-buttons">
 
-                    <!-- =====================================
-                         IGLESIA
-                         ===================================== -->
+                    <a
+                        id="churchGoogleMaps"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="map-button google"
+                    >
+                        📍 Google Maps
+                    </a>
 
-                    <article class="event-card reveal">
-
-                        <div class="event-icon">
-                            ⛪
-                        </div>
-
-                        <span class="event-number">
-                            01
-                        </span>
-
-                        <h3>
-                            Ceremonia religiosa
-                        </h3>
-
-                        <p class="event-name">
-                            Iglesia de Santa Luna
-                        </p>
-
-                        <p class="event-time">
-                            6:00 PM
-                        </p>
-
-                        <p class="event-address">
-                            Calle de los Suspiros #666
-                            <br>
-                            Centro de Monterrey,
-                            Nuevo León
-                        </p>
-
-
-                        <!-- BOTONES DE NAVEGACIÓN -->
-
-                        <div class="map-buttons">
-
-                            <a
-                                id="churchGoogleMaps"
-                                class="map-button google"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                📍 Google Maps
-                            </a>
-
-                            <a
-                                id="churchWaze"
-                                class="map-button waze"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                🚗 Waze
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =====================================
-                         SALÓN
-                         ===================================== -->
-
-                    <article class="event-card reveal">
-
-                        <div class="event-icon">
-                            🏰
-                        </div>
-
-                        <span class="event-number">
-                            02
-                        </span>
-
-                        <h3>
-                            Recepción
-                        </h3>
-
-                        <p class="event-name">
-                            Castillo de la Luna
-                        </p>
-
-                        <p class="event-time">
-                            8:00 PM
-                        </p>
-
-                        <p class="event-address">
-                            Camino de la Luna #666
-                            <br>
-                            Monterrey,
-                            Nuevo León
-                        </p>
-
-
-                        <!-- BOTONES DE NAVEGACIÓN -->
-
-                        <div class="map-buttons">
-
-                            <a
-                                id="venueGoogleMaps"
-                                class="map-button google"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                📍 Google Maps
-                            </a>
-
-                            <a
-                                id="venueWaze"
-                                class="map-button waze"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                🚗 Waze
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =====================================
-                         DRESS CODE
-                         ===================================== -->
-
-                    <article class="event-card reveal">
-
-                        <div class="event-icon">
-                            🦇
-                        </div>
-
-                        <span class="event-number">
-                            03
-                        </span>
-
-                        <h3>
-                            Código de vestimenta
-                        </h3>
-
-                        <p class="event-name">
-                            Gótico elegante
-                        </p>
-
-                        <p class="event-time">
-                            Black Tie
-                        </p>
-
-                        <p class="event-address">
-                            Negro · Vino ·
-                            <br>
-                            Naranja oscuro
-                        </p>
-
-                        <div class="dress-code-icons">
-                            🖤 🥀 🕯️
-                        </div>
-
-                    </article>
+                    <a
+                        id="churchWaze"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="map-button waze"
+                    >
+                        🚗 Waze
+                    </a>
 
                 </div>
 
             </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RECEPCIÓN
+             ================================================= -->
+
+        <section class="section event-section reception reveal">
+
+            <p class="section-label">
+                RECEPCIÓN
+            </p>
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🏰
+                </div>
+
+                <h2>
+                    Castillo de la Luna
+                </h2>
+
+                <p class="event-time">
+                    8:00 PM
+                </p>
+
+                <p class="event-address">
+                    Camino de la Luna #666
+                    <br>
+                    Monterrey,
+                    Nuevo León
+                </p>
+
+                <div class="map-buttons">
+
+                    <a
+                        id="venueGoogleMaps"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="map-button google"
+                    >
+                        📍 Google Maps
+                    </a>
+
+                    <a
+                        id="venueWaze"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="map-button waze"
+                    >
+                        🚗 Waze
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CÓDIGO DE VESTIMENTA
+             ================================================= -->
+
+        <section class="section dress-code reveal">
+
+            <p class="section-label">
+                CÓDIGO DE VESTIMENTA
+            </p>
+
+            <h2>
+                Elegancia oscura
+            </h2>
+
+            <div class="dress-icon">
+                🕯️
+            </div>
+
+            <p>
+                Formal / Elegante
+            </p>
+
+            <p class="dress-description">
+                Te invitamos a vestir con tonos oscuros,
+                elegantes y misteriosos.
+            </p>
 
         </section>
 
@@ -499,137 +458,108 @@
              ITINERARIO
              ================================================= -->
 
-        <section class="timeline-section">
+        <section class="section timeline-section reveal">
 
-            <div class="section-content">
+            <p class="section-label">
+                ITINERARIO
+            </p>
 
-                <span class="section-label">
-                    LA NOCHE
-                </span>
+            <h2>
+                Una noche para recordar
+            </h2>
 
-                <h2>
-                    Itinerario
-                </h2>
+            <div class="timeline">
 
+                <div class="timeline-item">
 
-                <div class="timeline">
+                    <span>
+                        5:30 PM
+                    </span>
 
+                    <div>
+                        <h3>
+                            Recepción de invitados
+                        </h3>
 
-                    <div class="timeline-item reveal">
-
-                        <span class="timeline-time">
-                            5:30 PM
-                        </span>
-
-                        <div class="timeline-line"></div>
-
-                        <div>
-
-                            <h3>
-                                Llegada de invitados
-                            </h3>
-
-                            <p>
-                                Recibimiento en la iglesia.
-                            </p>
-
-                        </div>
-
+                        <p>
+                            Llegada y bienvenida.
+                        </p>
                     </div>
 
+                </div>
 
-                    <div class="timeline-item reveal">
 
-                        <span class="timeline-time">
-                            6:00 PM
-                        </span>
+                <div class="timeline-item">
 
-                        <div class="timeline-line"></div>
+                    <span>
+                        6:00 PM
+                    </span>
 
-                        <div>
+                    <div>
+                        <h3>
+                            Ceremonia
+                        </h3>
 
-                            <h3>
-                                Ceremonia
-                            </h3>
-
-                            <p>
-                                El momento en que diremos:
-                                "Sí, acepto".
-                            </p>
-
-                        </div>
-
+                        <p>
+                            El momento que hemos esperado.
+                        </p>
                     </div>
 
+                </div>
 
-                    <div class="timeline-item reveal">
 
-                        <span class="timeline-time">
-                            8:00 PM
-                        </span>
+                <div class="timeline-item">
 
-                        <div class="timeline-line"></div>
+                    <span>
+                        8:00 PM
+                    </span>
 
-                        <div>
+                    <div>
+                        <h3>
+                            Recepción
+                        </h3>
 
-                            <h3>
-                                Recepción
-                            </h3>
-
-                            <p>
-                                Cena, brindis y celebración.
-                            </p>
-
-                        </div>
-
+                        <p>
+                            Cena y celebración.
+                        </p>
                     </div>
 
+                </div>
 
-                    <div class="timeline-item reveal">
 
-                        <span class="timeline-time">
-                            10:00 PM
-                        </span>
+                <div class="timeline-item">
 
-                        <div class="timeline-line"></div>
+                    <span>
+                        10:00 PM
+                    </span>
 
-                        <div>
+                    <div>
+                        <h3>
+                            Primer baile
+                        </h3>
 
-                            <h3>
-                                Primer baile
-                            </h3>
-
-                            <p>
-                                Una canción para comenzar
-                                nuestra nueva vida.
-                            </p>
-
-                        </div>
-
+                        <p>
+                            Nuestro primer baile como esposos.
+                        </p>
                     </div>
 
+                </div>
 
-                    <div class="timeline-item reveal">
 
-                        <span class="timeline-time">
-                            12:00 AM
-                        </span>
+                <div class="timeline-item">
 
-                        <div class="timeline-line"></div>
+                    <span>
+                        12:00 AM
+                    </span>
 
-                        <div>
+                    <div>
+                        <h3>
+                            Fiesta
+                        </h3>
 
-                            <h3>
-                                Fiesta
-                            </h3>
-
-                            <p>
-                                Porque esta noche
-                                apenas comienza...
-                            </p>
-
-                        </div>
-
+                        <p>
+                            ¡Que comience la celebración!
+                        </p>
                     </div>
 
                 </div>
@@ -643,93 +573,52 @@
              GALERÍA
              ================================================= -->
 
-        <section class="section gallery-section">
+        <section class="section gallery-section reveal">
 
-            <div class="section-content">
+            <p class="section-label">
+                RECUERDOS
+            </p>
 
-                <span class="section-label">
-                    NUESTRO MUNDO
-                </span>
+            <h2>
+                Momentos
+            </h2>
 
-                <h2>
-                    Una noche para
-                    <span>recordar</span>
-                </h2>
+            <div class="gallery">
 
+                <img
+                    src="https://images.pexels.com/photos/16038622/pexels-photo-16038622.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Fotografía de boda"
+                    loading="lazy"
+                    draggable="false"
+                >
 
-                <div class="gallery">
+                <img
+                    src="https://images.pexels.com/photos/18959384/pexels-photo-18959384.jpeg?auto=compress&cs=tinysrgb&w=900"
+                    alt="Decoración de boda"
+                    loading="lazy"
+                    draggable="false"
+                >
 
+                <img
+                    src="https://images.pexels.com/photos/18874269/pexels-photo-18874269.jpeg?auto=compress&cs=tinysrgb&w=900"
+                    alt="Pareja de novios"
+                    loading="lazy"
+                    draggable="false"
+                >
 
-                    <figure
-                        class="gallery-item large reveal"
-                        data-image="https://images.pexels.com/photos/16038622/pexels-photo-16038622.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                    >
+                <img
+                    src="https://images.pexels.com/photos/16124014/pexels-photo-16124014.jpeg?auto=compress&cs=tinysrgb&w=900"
+                    alt="Celebración de boda"
+                    loading="lazy"
+                    draggable="false"
+                >
 
-                        <img
-                            src="https://images.pexels.com/photos/16038622/pexels-photo-16038622.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                            alt="Pareja con temática gótica"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure
-                        class="gallery-item reveal"
-                        data-image="https://images.pexels.com/photos/18959384/pexels-photo-18959384.jpeg?auto=compress&cs=tinysrgb&w=900"
-                    >
-
-                        <img
-                            src="https://images.pexels.com/photos/18959384/pexels-photo-18959384.jpeg?auto=compress&cs=tinysrgb&w=900"
-                            alt="Pareja con temática Halloween"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure
-                        class="gallery-item reveal"
-                        data-image="https://images.pexels.com/photos/18874269/pexels-photo-18874269.jpeg?auto=compress&cs=tinysrgb&w=900"
-                    >
-
-                        <img
-                            src="https://images.pexels.com/photos/18874269/pexels-photo-18874269.jpeg?auto=compress&cs=tinysrgb&w=900"
-                            alt="Decoración con velas"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure
-                        class="gallery-item reveal"
-                        data-image="https://images.pexels.com/photos/16124014/pexels-photo-16124014.jpeg?auto=compress&cs=tinysrgb&w=900"
-                    >
-
-                        <img
-                            src="https://images.pexels.com/photos/16124014/pexels-photo-16124014.jpeg?auto=compress&cs=tinysrgb&w=900"
-                            alt="Novia con estilo gótico"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure
-                        class="gallery-item large reveal"
-                        data-image="https://images.pexels.com/photos/18959391/pexels-photo-18959391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                    >
-
-                        <img
-                            src="https://images.pexels.com/photos/18959391/pexels-photo-18959391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                            alt="Pareja celebrando una boda"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-                </div>
+                <img
+                    src="https://images.pexels.com/photos/18959391/pexels-photo-18959391.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Decoración romántica"
+                    loading="lazy"
+                    draggable="false"
+                >
 
             </div>
 
@@ -740,20 +629,21 @@
              FRASE
              ================================================= -->
 
-        <section class="quote-section">
+        <section class="quote-section reveal">
 
-            <div class="quote-overlay">
+            <div class="quote-content">
 
-                <span class="quote-symbol">
+                <span>
                     ❝
                 </span>
 
                 <p>
-                    Nuestro amor no teme a la oscuridad,
-                    porque juntos hacemos nuestra propia luz.
+                    "El amor no consiste en mirarse
+                    el uno al otro, sino en mirar juntos
+                    hacia la misma dirección."
                 </p>
 
-                <span class="quote-symbol">
+                <span>
                     ❞
                 </span>
 
@@ -766,35 +656,37 @@
              RSVP
              ================================================= -->
 
-        <section class="section rsvp-section">
+        <section class="section rsvp-section reveal">
 
-            <div class="section-content reveal">
+            <p class="section-label">
+                CONFIRMA TU ASISTENCIA
+            </p>
 
-                <span class="section-label">
-                    CONFIRMACIÓN
-                </span>
+            <h2>
+                ¿Nos acompañas?
+            </h2>
 
-                <h2>
-                    ¿Nos acompañas?
-                </h2>
+            <p>
+                Nos encantará compartir este momento
+                contigo.
+            </p>
 
-                <p>
-                    Confirma tu asistencia antes del
-                    <strong>
-                        15 de octubre de 2026
-                    </strong>.
-                </p>
+            <p class="rsvp-date">
+                Confirma antes del
+                <strong>
+                    15 de octubre de 2026
+                </strong>
+            </p>
 
-                <a
-                    id="whatsappButton"
-                    class="main-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    💌 Confirmar asistencia
-                </a>
-
-            </div>
+            <a
+                id="whatsappButton"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="main-button"
+            >
+                Confirmar por WhatsApp
+            </a>
 
         </section>
 
@@ -805,34 +697,22 @@
 
         <footer class="footer">
 
-            <div class="footer-content">
+            <h2>
+                Jennifer
+                <span>&</span>
+                David
+            </h2>
 
-                <p class="footer-small">
-                    CON AMOR Y UN POCO DE MAGIA
-                </p>
+            <p>
+                31 · 10 · 2026
+            </p>
 
-                <h2>
-                    Jennifer
-                    <span>&</span>
-                    David
-                </h2>
-
-                <p>
-                    31 · 10 · 2026
-                </p>
-
-                <div class="footer-symbols">
-                    🕯️ 🦇 🖤 🥀
-                </div>
-
-                <p class="copyright">
-                    Nuestra noche · Nuestra historia ·
-                    Nuestro para siempre
-                </p>
-
-            </div>
+            <p class="footer-love">
+                Con amor ♥
+            </p>
 
         </footer>
+
 
     </main>
 
@@ -844,16 +724,14 @@
     <div
         id="lightbox"
         class="lightbox"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Fotografía ampliada"
+        aria-hidden="true"
     >
 
         <button
             id="closeLightbox"
             class="close-lightbox"
             type="button"
-            aria-label="Cerrar fotografía"
+            aria-label="Cerrar imagen"
         >
             ×
         </button>
@@ -861,7 +739,8 @@
         <img
             id="lightboxImage"
             src=""
-            alt=""
+            alt="Imagen ampliada"
+            draggable="false"
         >
 
     </div>
@@ -871,7 +750,10 @@
          JAVASCRIPT
          ===================================================== -->
 
-    <script src="script.js"></script>
+    <script
+        src="script.js"
+        defer
+    ></script>
 
 </body>
 
